@@ -217,99 +217,6 @@
             margin-top: 2rem;
         }
 
-        /* Photo Gallery - Balloon Style */
-        .photo-gallery {
-            margin: 4rem 0;
-            position: relative;
-        }
-
-        .gallery-title {
-            font-family: 'Great Vibes', cursive;
-            font-size: 3.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #fff;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .balloon-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            padding: 2rem;
-        }
-
-        .balloon-photo {
-            position: relative;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            padding: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            animation: floatBalloon 6s ease-in-out infinite;
-            transform-origin: center bottom;
-        }
-
-        @keyframes floatBalloon {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-20px) rotate(2deg);
-            }
-        }
-
-        .balloon-photo:hover {
-            transform: translateY(-30px) scale(1.05) rotate(5deg);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-            background: rgba(255, 255, 255, 0.25);
-        }
-
-        .balloon-photo:nth-child(2) {
-            animation-delay: 1s;
-        }
-
-        .balloon-photo:nth-child(3) {
-            animation-delay: 2s;
-        }
-
-        .balloon-photo:nth-child(4) {
-            animation-delay: 3s;
-        }
-
-        .balloon-photo img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            border: 8px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.5s ease;
-        }
-
-        .balloon-photo:hover img {
-            border-color: rgba(255, 255, 255, 0.6);
-        }
-
-        .balloon-string {
-            position: absolute;
-            bottom: -40px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 40px;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), transparent);
-        }
-
-        .photo-caption {
-            text-align: center;
-            margin-top: 1rem;
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.5rem;
-            color: #fff;
-            opacity: 0.9;
-        }
-
         /* Birthday Wishes */
         .birthday-wishes {
             background: rgba(255, 255, 255, 0.1);
@@ -492,7 +399,292 @@
             box-shadow: 0 15px 40px rgba(255, 140, 0, 0.6);
         }
 
-        /* Modal for Photos */
+        /* Welcome Modal */
+        .custom-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-card {
+            background: linear-gradient(135deg, #fff9fb 0%, #fff0f5 100%);
+            max-width: 500px;
+            width: 100%;
+            border-radius: 30px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            animation: modalPop 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 20px 60px rgba(255, 20, 147, 0.3);
+            border: 3px solid #ff6b93;
+        }
+
+        /* Wish Modal (for after blowing candle) */
+        .wish-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 10001;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            backdrop-filter: blur(8px);
+        }
+
+        .wish-card {
+            background: linear-gradient(135deg, #fff0f5 0%, #ffe6f0 100%);
+            max-width: 600px;
+            width: 100%;
+            border-radius: 40px;
+            padding: 2.5rem;
+            text-align: center;
+            position: relative;
+            animation: wishPop 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 25px 70px rgba(255, 215, 0, 0.4);
+            border: 4px solid #ffd700;
+        }
+
+        @keyframes wishPop {
+            0% {
+                transform: scale(0.3) rotate(-10deg);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1) rotate(2deg);
+            }
+            100% {
+                transform: scale(1) rotate(0);
+                opacity: 1;
+            }
+        }
+
+        .wish-stars {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .wish-stars i {
+            font-size: 3rem;
+            color: #ffd700;
+            margin: 0 0.5rem;
+            animation: starTwinkle 1s infinite alternate;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+        }
+
+        .wish-stars i:nth-child(2) {
+            animation-delay: 0.2s;
+            font-size: 3.5rem;
+        }
+
+        .wish-stars i:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes starTwinkle {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1.3);
+                opacity: 1;
+                text-shadow: 0 0 30px rgba(255, 215, 0, 1);
+            }
+        }
+
+        .wish-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            color: #d44d7a;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(212, 77, 122, 0.3);
+        }
+
+        .wish-message {
+            font-size: 2rem;
+            color: #5d3a4a;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .wish-message span {
+            display: inline-block;
+            animation: wishBounce 1s infinite;
+        }
+
+        .wish-highlight {
+            background: linear-gradient(135deg, #ffd700, #ffa500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+
+        @keyframes wishBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .wish-candles {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .mini-candle {
+            width: 15px;
+            height: 40px;
+            background: linear-gradient(135deg, #ff6b93, #ff2a6d);
+            border-radius: 5px;
+            position: relative;
+            animation: candleGlow 1s infinite alternate;
+        }
+
+        .mini-candle .mini-flame {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 30px;
+            background: linear-gradient(135deg, #ffd700, #ff8c00, #ff4500);
+            border-radius: 50% 50% 20% 20%;
+            animation: miniFlicker 0.3s infinite alternate;
+        }
+
+        @keyframes miniFlicker {
+            0% { transform: translateX(-50%) scale(1); }
+            100% { transform: translateX(-50%) scale(1.2); }
+        }
+
+        @keyframes candleGlow {
+            0% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
+            100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
+        }
+
+        .wish-btn {
+            background: linear-gradient(135deg, #ffd700, #ffa500);
+            color: white;
+            border: none;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5);
+            margin-top: 1.5rem;
+        }
+
+        .wish-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.8);
+            background: linear-gradient(135deg, #ffa500, #ff8c00);
+        }
+
+        @keyframes modalPop {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal-hearts {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        .modal-hearts i {
+            font-size: 3rem;
+            color: #ff6b93;
+            margin: 0 0.5rem;
+            animation: modalHeartbeat 1s infinite;
+        }
+
+        .modal-hearts i:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .modal-hearts i:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes modalHeartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.3); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.2); }
+        }
+
+        .modal-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            color: #d44d7a;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(212, 77, 122, 0.2);
+        }
+
+        .modal-message {
+            font-size: 1.5rem;
+            color: #5d3a4a;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .modal-message span {
+            display: inline-block;
+            animation: bounce 0.5s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .modal-btn {
+            background: linear-gradient(135deg, #ff6b93, #d44d7a);
+            color: white;
+            border: none;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(212, 77, 122, 0.4);
+            margin-top: 1rem;
+        }
+
+        .modal-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 77, 122, 0.6);
+        }
+
+        /* Photo Modal */
         .photo-modal {
             display: none;
             position: fixed;
@@ -500,8 +692,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 1000;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
             justify-content: center;
             align-items: center;
             padding: 2rem;
@@ -611,17 +803,20 @@
                 font-size: 2.5rem;
             }
 
-            .balloon-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .balloon-photo {
-                max-width: 300px;
-                margin: 0 auto;
-            }
-
             .wishes-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .modal-title, .wish-title {
+                font-size: 2.5rem;
+            }
+
+            .modal-message, .wish-message {
+                font-size: 1.3rem;
+            }
+
+            .wish-highlight {
+                font-size: 2rem;
             }
         }
 
@@ -654,10 +849,90 @@
             .birthday-message, .birthday-wishes {
                 padding: 2rem 1.5rem;
             }
+
+            .modal-card, .wish-card {
+                padding: 1.5rem;
+            }
+
+            .modal-title, .wish-title {
+                font-size: 2rem;
+            }
+
+            .modal-message, .wish-message {
+                font-size: 1.2rem;
+            }
+
+            .wish-highlight {
+                font-size: 1.6rem;
+            }
+
+            .wish-stars i {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Welcome Modal -->
+    <div class="custom-modal" id="welcomeModal">
+        <div class="modal-card">
+            <div class="modal-hearts">
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-heart"></i>
+            </div>
+            <h2 class="modal-title">🎉 Happy Birthday! 🎉</h2>
+            <p class="modal-message">
+                Wuhhuuuuuu Happyyy bdayy to youuu kuchupuchuuuuuuuu!<br>
+                <span>✨</span> Dekho dekho dekho! <span>✨</span>
+            </p>
+            <button class="modal-btn" id="welcomeModalCloseBtn">
+                <i class="fas fa-heart"></i> Let's Celebrate! <i class="fas fa-heart"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Wish Modal (after blowing candle) -->
+    <div class="wish-modal" id="wishModal">
+        <div class="wish-card">
+            <div class="wish-stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <h2 class="wish-title">✨ Your Wish is Granted! ✨</h2>
+            <p class="wish-message">
+                <span>🎂</span> May all your dreams come true <span>🎂</span>
+            </p>
+            <div class="wish-highlight">
+                Happy Birthday, My Love! ❤️
+            </div>
+            <div class="wish-candles">
+                <div class="mini-candle">
+                    <div class="mini-flame"></div>
+                </div>
+                <div class="mini-candle">
+                    <div class="mini-flame"></div>
+                </div>
+                <div class="mini-candle">
+                    <div class="mini-flame"></div>
+                </div>
+                <div class="mini-candle">
+                    <div class="mini-flame"></div>
+                </div>
+                <div class="mini-candle">
+                    <div class="mini-flame"></div>
+                </div>
+            </div>
+            <p class="wish-message" style="font-size: 1.8rem;">
+               
+            </p>
+            <button class="wish-btn" id="wishModalCloseBtn">
+                <i class="fas fa-heart"></i> Thank You! <i class="fas fa-heart"></i>
+            </button>
+        </div>
+    </div>
+
     <!-- Floating Hearts Background -->
     <div class="floating-hearts" id="floatingHearts"></div>
 
@@ -669,7 +944,7 @@
         <!-- Header -->
         <header>
             <h1 class="birthday-title">Happy Birthday, My Love! 🎂</h1>
-            <p class="birthday-subtitle">To the most amazing person in my life</p>
+            <p class="birthday-subtitle">To the most kaleshi (respectfully) person in my life</p>
             
             <!-- Birthday Countdown -->
             <div class="countdown" id="countdown">
@@ -694,15 +969,15 @@
 
         <!-- Birthday Message -->
         <section class="birthday-message">
-            <h2 class="message-title">My Dearest Love,</h2>
+            <h2 class="message-title">My Love,</h2>
             <p class="message-text">
-                On this special day, I want to remind you how incredibly amazing you are. Every moment with you feels like a beautiful dream come true. Your smile lights up my world, your laughter is my favorite melody, and your love is the greatest gift I've ever received.
+                Very Very Happpyyy wallaa bdayyy to youuuu heart heart heartt, mere pass jyda kuch khene ko toh nahi hai but i had something for you meet me tomorrow and just wait and watch hehe.
                 <br><br>
-                Today is all about celebrating YOU - the wonderful, beautiful, kind-hearted person who has brought so much joy and happiness into my life. May this birthday bring you all the love, laughter, and beautiful moments you deserve.
+                May this bday also the best bday for you last time tune kha tha ki the best tha yeh and also harr bari ki trah is bday pr nahi rona only khushi ke ansuu please waise toh rone ka hi nahi yayaya.
                 <br><br>
-                I'm so grateful to have you in my life, and I promise to make every day special for you, just like you make every day special for me.
+                Baki toh kl apko insta and mil krr surprise mil hi jyga and hehe aise hi mastikhori, badmoshi hassi mazak krte rhoo and thanks for everything and abhi ragebait ke bad toh kya ughhhh but mazee aiiii once againn happpyy bdayy too youu very excited for tomorrow to see your reaction hehehe.
             </p>
-            <div class="signature">With all my love,<br>Your Love</div>
+            <div class="signature">With all my love,<br>Your DUMBOO</div>
         </section>
 
         <!-- Interactive Buttons -->
@@ -717,60 +992,6 @@
                 <i class="fas fa-music"></i> Play Birthday Song
             </button>
         </div>
-
-        <!-- Photo Gallery in Balloons -->
-        <section class="photo-gallery">
-            <h2 class="gallery-title">Our Beautiful Memories</h2>
-            <div class="balloon-grid">
-                <!-- Balloon 1 -->
-                <div class="balloon-photo">
-                    <img src="./bday1.jpg" alt="Beautiful Memory 1" class="balloon-img">
-                    <div class="balloon-string"></div>
-                    <div class="photo-caption">The Smile That Stole My Heart</div>
-                </div>
-                <!-- Balloon 2 -->
-                <div class="balloon-photo">
-                    <img src="./bday2.jpg" alt="Beautiful Memory 2" class="balloon-img">
-                    <div class="balloon-string"></div>
-                    <div class="photo-caption">Forever My Sunshine</div>
-                </div>
-                <!-- Balloon 3 -->
-                <div class="balloon-photo">
-                    <img src="./bday3.jpg" alt="Beautiful Memory 3" class="balloon-img">
-                    <div class="balloon-string"></div>
-                    <div class="photo-caption">My Beautiful Queen</div>
-                </div>
-                <!-- Balloon 4 -->
-                <div class="balloon-photo">
-                    <img src="./bday4.jpg" alt="Beautiful Memory 4" class="balloon-img">
-                    <div class="balloon-string"></div>
-                    <div class="photo-caption">The Love of My Life</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Birthday Wishes -->
-        <section class="birthday-wishes">
-            <h2 class="wishes-title">My Wishes For You</h2>
-            <div class="wishes-grid">
-                <div class="wish-item">
-                    <div class="wish-icon">💝</div>
-                    <div class="wish-text">Endless happiness and laughter in your life</div>
-                </div>
-                <div class="wish-item">
-                    <div class="wish-icon">🌟</div>
-                    <div class="wish-text">All your dreams and aspirations come true</div>
-                </div>
-                <div class="wish-item">
-                    <div class="wish-icon">🌹</div>
-                    <div class="wish-text">A lifetime of beautiful moments and memories</div>
-                </div>
-                <div class="wish-item">
-                    <div class="wish-icon">🎁</div>
-                    <div class="wish-text">Everything beautiful that life has to offer</div>
-                </div>
-            </div>
-        </section>
 
         <!-- Birthday Cake -->
         <section class="birthday-cake">
@@ -797,7 +1018,7 @@
             <div class="footer-heart">
                 <i class="fas fa-heart"></i>
             </div>
-            <p class="footer-text">Made with infinite love for the most special person</p>
+            <p class="footer-text">One small gift for the most mastikhor person in my life</p>
             <p class="footer-text">May your birthday be as beautiful as you are</p>
             <p class="footer-text">Happy Birthday, My Love! 🎉🎂❤️</p>
         </footer>
@@ -815,12 +1036,70 @@
     </div>
 
     <!-- Birthday Music -->
-    <audio id="birthdayMusic" loop>
-        <source src="https://assets.mixkit.co/music/preview/mixkit-happy-birthday-to-you-443.mp3" type="audio/mpeg">
+    <audio id="birthdayMusic" loop autoplay>
+        <source src="./audio.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
     </audio>
 
     <!-- Scripts -->
     <script>
+        // Welcome Modal
+        function showWelcomeModal() {
+            const modal = document.getElementById('welcomeModal');
+            modal.style.display = 'flex';
+            
+            // Launch initial fireworks when modal appears
+            fireworks.launchMultipleFireworks(8);
+            confetti.createConfetti(200);
+            
+            // Auto close after 10 seconds
+            setTimeout(() => {
+                if (modal.style.display === 'flex') {
+                    closeWelcomeModal();
+                }
+            }, 10000);
+        }
+
+        function closeWelcomeModal() {
+            const modal = document.getElementById('welcomeModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            // Launch more fireworks when closed
+            fireworks.launchMultipleFireworks(5);
+            confetti.createConfetti(150);
+        }
+
+        // Wish Modal (after blowing candle)
+        function showWishModal() {
+            const modal = document.getElementById('wishModal');
+            modal.style.display = 'flex';
+            
+            // Launch extra special fireworks
+            fireworks.launchMultipleFireworks(20);
+            confetti.createConfetti(500);
+            
+            // Play a special sound (optional)
+            // You can add a special sound effect here if you want
+            
+            // Auto close after 8 seconds
+            setTimeout(() => {
+                if (modal.style.display === 'flex') {
+                    closeWishModal();
+                }
+            }, 8000);
+        }
+
+        function closeWishModal() {
+            const modal = document.getElementById('wishModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            // One more celebration!
+            fireworks.launchMultipleFireworks(10);
+            confetti.createConfetti(300);
+        }
+
         // Initialize floating hearts
         function createFloatingHearts() {
             const container = document.getElementById('floatingHearts');
@@ -1229,42 +1508,6 @@
             }
         }
 
-        // Photo Modal
-        function initPhotoModal() {
-            const modal = document.getElementById('photoModal');
-            const modalImage = document.getElementById('modalImage');
-            const modalInfo = document.getElementById('modalInfo');
-            const modalClose = document.getElementById('modalClose');
-            
-            document.querySelectorAll('.balloon-img').forEach((img, index) => {
-                img.addEventListener('click', function() {
-                    modalImage.src = this.src;
-                    modalInfo.textContent = this.parentElement.querySelector('.photo-caption').textContent;
-                    modal.style.display = 'flex';
-                    document.body.style.overflow = 'hidden';
-                });
-            });
-            
-            modalClose.addEventListener('click', () => {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            });
-            
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
-            });
-            
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && modal.style.display === 'flex') {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
-            });
-        }
-
         // Interactive Elements
         function initInteractiveElements() {
             const birthdayMusic = document.getElementById('birthdayMusic');
@@ -1273,7 +1516,9 @@
             const flame = document.querySelector('.flame');
             
             // Music button
-            let isPlaying = false;
+            let isPlaying = true; // Changed to true because autoplay is on
+            musicBtn.innerHTML = '<i class="fas fa-pause"></i> Pause Music';
+            
             musicBtn.addEventListener('click', () => {
                 if (!isPlaying) {
                     birthdayMusic.play();
@@ -1289,18 +1534,22 @@
             // Blow candle button
             blowCandleBtn.addEventListener('click', () => {
                 flame.style.display = 'none';
-                blowCandleBtn.innerHTML = '<i class="fas fa-birthday-cake"></i> Candle Blown!';
+                blowCandleBtn.innerHTML = '<i class="fas fa-birthday-cake"></i> Wish Made!';
                 blowCandleBtn.disabled = true;
                 
                 // Launch fireworks when candle is blown
                 fireworks.launchMultipleFireworks(15);
                 confetti.createConfetti(300);
                 
-                // Show birthday message
+                // Show wish modal
                 setTimeout(() => {
-                    alert('🎂 Happy Birthday, My Love! May all your wishes come true! 🎉');
-                }, 1000);
+                    showWishModal();
+                }, 500);
             });
+
+            // Modal close buttons
+            document.getElementById('welcomeModalCloseBtn').addEventListener('click', closeWelcomeModal);
+            document.getElementById('wishModalCloseBtn').addEventListener('click', closeWishModal);
         }
 
         // Initialize everything
@@ -1317,17 +1566,16 @@
             confetti = new Confetti();
             
             // Initialize other features
-            initPhotoModal();
             initInteractiveElements();
             
             // Start countdown
             updateCountdown();
             setInterval(updateCountdown, 1000);
             
-            // Welcome message
+            // Show welcome modal after 1 second
             setTimeout(() => {
-                alert('🎉 Welcome to your birthday surprise, my love! 🎂\n\nClick around to discover all the surprises I made for you! ❤️');
-            }, 2000);
+                showWelcomeModal();
+            }, 1000);
         });
     </script>
 </body>
